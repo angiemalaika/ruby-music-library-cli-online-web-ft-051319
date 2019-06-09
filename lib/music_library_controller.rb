@@ -20,7 +20,9 @@ class MusicLibraryController
 
      input = gets.strip
 
-     
+     case input
+     when "list songs"
+       list_songs
      when "list artists"
        list_artists
      when "list genres"
@@ -33,9 +35,7 @@ class MusicLibraryController
        play_song
      end
    end
- endcase input
-     when "list songs"
-       list_songs
+ end
 
  def list_songs
    Song.all.sort{ |a, b| a.name <=> b.name }.each.with_index(1) do |s, i|
